@@ -5,24 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <title>Welcome to Flipchat.tv</title>
+    <title>Flipchat.tv</title>
 </head>
 
 <body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
 
-    <div class="text-center">
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Login</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-600">Username or Email:</label>
+                    <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-600">Password:</label>
+                    <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn" class="mr-2">
+                    <label for="keepLoggedIn" class="text-gray-600">Keep me logged in</label>
+                </div>
+                <button type="submit"
+                    class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-green active:bg-green-800">Login</button>
+            </form>
+            <button id="closeLoginModal"
+                class="mt-4 text-sm text-gray-500 hover:text-gray-700 focus:outline-none">Close</button>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal"
+        class="hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Register</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-600">Email:</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-600">Username:</label>
+                    <input type="text" id="username" name="username" class="w-full px-3 py-2 border rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-600">Password:</label>
+                    <input type="password" id="password" name="password" class="w-full px-3 py-2 border rounded">
+                </div>
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800">Register</button>
+            </form>
+            <button id="closeRegistrationModal"
+                class="mt-4 text-sm text-gray-500 hover:text-gray-700 focus:outline-none">Close</button>
+        </div>
+    </div>
+
+    <div class="text-lg text-center">
         <h1 class="text-7xl font-extrabold mb-6 text-blue-500">Welcome to <span
                 class="text-green-500">Flipchat.tv</span></h1>
         <p class="text-gray-600 mb-8 text-xl">An alternative to Omegle</p>
 
-        <div class="flex space-x-4">
-            <a href="registration.html"
-                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 text-lg">Register</a>
+        <div class="text-center openRegistrationModal">
+            <button id="openRegistrationModal"
+                class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-800 text-lg">Register</button>
 
-            <a href="login.html"
-                class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-green active:bg-green-800 text-lg">Login</a>
+            <button id="openLoginModal"
+                class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-green active:bg-green-800 text-lg">Login</button>
         </div>
     </div>
+
+    <script>
+        document.querySelector('#openLoginModal').addEventListener('click', function () {
+            document.getElementById('loginModal').classList.remove('hidden');
+        });
+
+        document.querySelector('#closeLoginModal').addEventListener('click', function () {
+            document.getElementById('loginModal').classList.add('hidden');
+        });
+
+        document.querySelector('#openRegistrationModal').addEventListener('click', function () {
+            document.getElementById('registrationModal').classList.remove('hidden');
+        });
+
+        document.querySelector('#closeRegistrationModal').addEventListener('click', function () {
+            document.getElementById('registrationModal').classList.add('hidden');
+        });
+    </script>
 
 </body>
 
