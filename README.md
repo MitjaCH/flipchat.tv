@@ -34,4 +34,3 @@ Contributions are welcome! If you'd like to contribute to the development of Fli
 ---
 
 Feel free to reach out if you have any questions or feedback!
-```
